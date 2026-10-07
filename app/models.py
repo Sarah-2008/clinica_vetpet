@@ -30,10 +30,10 @@ class Atendimento(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     data_atend = Column(String(10), nullable=False)
-    email = Column(String(100), nullable=False, unique=True)
-    telefone = Column(String(20), nullable=True)
-    salario = Column(Float, nullable=False)
-    ativo = Column(Boolean, default=True)
+    motivo = Column(String(200), nullable=False)
+    valor_cons = Column(Float, nullable=True)
+    animal_id = Column(Float, nullable=False)
+    ativo = Column(Integer, foreign_key=('Animal.id'))
     
     def __repr__(self):
         return f'<Atendimento id={self.id} nome={self.nome}>'
